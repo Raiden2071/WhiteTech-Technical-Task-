@@ -13,9 +13,9 @@
     justify-content: center;
   
     margin-bottom: 1rem;
-    height: var(--book-card-width);
+    height: var(--book-card-height);
     width: var(--book-card-width);
-    min-height: var(--book-card-width);
+    min-height: var(--book-card-height);
     min-width: var(--book-card-width);
     border: 1px solid var(--black);
     cursor: pointer;
@@ -27,8 +27,10 @@
       object-fit: cover;
     }
 
-    &:hover {
-      transform: scale(1.01);
+    &:has(img) {
+      &:hover {
+        transform: scale(1.01);
+      }
     }
   }
 

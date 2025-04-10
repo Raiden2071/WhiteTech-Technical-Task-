@@ -1,11 +1,11 @@
-<h2 mat-dialog-title class="add-edit-dialog-header">Edit Book Dialog</h2>
+<h2 mat-dialog-title class="add-edit-dialog-header">{{isEditMode ? 'Edit' : 'Add'}} Book Dialog</h2>
 
 <mat-dialog-content class="add-edit-dialog-content">
   <div class="add-edit-dialog-image" (click)="onImageClick()" (keydown.enter)="onImageClick()" tabindex="0" role="button">
     @if (imagePreview() || (isEditMode && data.book && data.book.image)) {
       <img [src]="imagePreview() || data.book.image" alt="book-image" />
     } @else {
-      <p class="card-photo-name">NO IMAGE</p>
+      <p class="card-photo-name">240x300</p>
     }
   </div>
   <form class="add-edit-dialog-form" [formGroup]="bookForm">
@@ -33,11 +33,11 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-flat-button color="primary" mat-dialog-close>
-    <mat-icon>favorite</mat-icon>
+    <mat-icon>close</mat-icon>
     Close
   </button>
   <button mat-flat-button color="primary" cdkFocusInitial mat-dialog-close (click)="saveBook()">
     <mat-icon>favorite</mat-icon>
-    Edit
+    {{ isEditMode ? 'Edit' : 'Add' }}
   </button>
 </mat-dialog-actions>

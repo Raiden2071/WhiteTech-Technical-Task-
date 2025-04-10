@@ -25,7 +25,7 @@ export class DialogService {
         book,
         dialogType: dialogType,
       },
-      width: '600px',
+      width: '450px',
     });
   }
 } 
