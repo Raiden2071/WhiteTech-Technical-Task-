@@ -1,8 +1,9 @@
 export const BOOKS_DIALOG_TYPES = {
-  SHOW: 'SHOW',
-  EDIT: 'EDIT',
-  DELETE: 'DELETE',
-};
+  SHOW: 'show',
+  EDIT: 'edit',
+  DELETE: 'delete',
+  ADD: 'add'
+} as const;
 export type BooksDialogType = typeof BOOKS_DIALOG_TYPES[keyof typeof BOOKS_DIALOG_TYPES];
 
 export interface Book {

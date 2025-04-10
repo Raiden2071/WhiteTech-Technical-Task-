@@ -68,11 +68,12 @@ export class BooksComponent implements OnInit {
     this.initFormListeners();
   }
 
-  public openDialog(book: Book, dialogType: BooksDialogType): void {
+  public openDialog(book: Book | null, dialogType: BooksDialogType): void {
     const dialogComponent = {
       [BOOKS_DIALOG_TYPES.SHOW]: ShowBookDialogComponent,
       [BOOKS_DIALOG_TYPES.EDIT]: EditBookDialogComponent,
       [BOOKS_DIALOG_TYPES.DELETE]: DeleteBookDialogComponent,
+      [BOOKS_DIALOG_TYPES.ADD]: EditBookDialogComponent,
     };
 
     this.dialog.open(dialogComponent[dialogType], {

@@ -9,7 +9,7 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  border: 1px solid #d4d4d4;
   border-radius: 20px;
 }
 
@@ -24,6 +24,29 @@
 .input-handler {
   display: flex;
   justify-content: center;
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 24px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  
+  mat-icon {
+    margin-right: 4px;
+  }
 }
 
 .books-container {

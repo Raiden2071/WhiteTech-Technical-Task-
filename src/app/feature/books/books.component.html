@@ -4,15 +4,23 @@
     <div class="section-header">
       <p class="container-name">LIST</p>
     </div>
-    <mat-form-field class="input-handler">
-      <input
-        matInput
-        type="text"
-        [formControl]="searchText"
-        placeholder="Enter the card..."
-      />
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+    <div class="controls-container">
+      <mat-form-field class="input-handler">
+        <input
+          matInput
+          type="text"
+          [formControl]="searchText"
+          placeholder="Enter the card..."
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" class="add-button" (click)="openDialog(null, BOOKS_DIALOG_TYPES.ADD)">
+        <mat-icon>add</mat-icon>
+        Add Book
+      </button>
+    </div>
+
     <hr>
 
     <div class="books-container">
