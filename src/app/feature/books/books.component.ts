@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -27,6 +26,7 @@ import {
 } from '@feature/books/dialogs/books-dialog/show-book-dialog/show-book-dialog.component';
 import { Observable } from 'rxjs';
 
+import { CardBookComponent } from './components/card-book/card-book.component';
 import { Book, BOOKS_DIALOG_TYPES, BooksDialogType } from './models/book.model';
 import { BooksService } from './services/books.service';
 
@@ -42,8 +42,7 @@ import { BooksService } from './services/books.service';
     MatFormFieldModule,
     MatDialogModule,
     MatInput,
-    MatButton,
-    NgOptimizedImage,
+    CardBookComponent,
   ],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss',
@@ -57,14 +56,6 @@ export class BooksComponent implements OnInit {
   filteredBooks: WritableSignal<Book[]> = signal<Book[]>([]);
   searchText: FormControl<string> = this.fb.nonNullable.control<string>('')
 
-  // readonly bookForm = this.fb.group({
-  //   image: [''],
-  //   name: ['', Validators.required],
-  //   author: ['', Validators.required],
-  //   year: ['', Validators.required],
-  //   description: ['', Validators.required]
-  // });
-
   constructor(
     private booksService: BooksService,
     private fb: FormBuilder,
@@ -76,30 +67,6 @@ export class BooksComponent implements OnInit {
 
     this.initFormListeners();
   }
-
-  // public addBook(): void {
-  //   if (this.bookForm.valid) {
-  //     const formValue = this.bookForm.getRawValue();
-  //     const newBook: Book = {
-  //       id: uuidv4(),
-  //       name: formValue.name ?? '',
-  //       author: formValue.author ?? '',
-  //       year: +(formValue.year ?? 0),
-  //       description: formValue.description ?? '',
-  //       image: formValue.image ?? '',
-  //     };
-
-  //     this.booksService.addBook(newBook);
-  //     this.bookForm.reset();
-  //   }
-  // }
-
-  // public onFileChange(event: Event): void {
-  //   // const file = event.target.files[0];
-  //   // if (file) {
-  //   //   this.bookForm.patchValue({ image: file });
-  //   // }
-  // }
 
   public openDialog(book: Book, dialogType: BooksDialogType): void {
     const dialogComponent = {
