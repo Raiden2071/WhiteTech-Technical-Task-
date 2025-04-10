@@ -64,14 +64,15 @@
 
           <mat-card-content>
             <p>{{ book.name }}</p>
+            <p>{{ book.author }}</p>
           </mat-card-content>
 
           <mat-card-actions class="buttons-handler">
             <button class="card-btn" (click)="$event.stopPropagation(); openDialog(book, BOOKS_DIALOG_TYPES.DELETE)">
-              <img ngSrc="assets/icons/bin.svg" class="bin" alt="delete" height="16" width="16">
+              <img ngSrc="icons/bin.svg" class="bin" alt="delete" height="16" width="16">
             </button>
             <button class="card-btn" (click)="$event.stopPropagation();openDialog(book, BOOKS_DIALOG_TYPES.EDIT)">
-              <img ngSrc="assets/icons/pencil.svg" class="pencil" alt="edit" height="16" width="16">
+              <img ngSrc="icons/pencil.svg" class="pencil" alt="edit" height="16" width="16">
             </button>
           </mat-card-actions>
         </mat-card>
