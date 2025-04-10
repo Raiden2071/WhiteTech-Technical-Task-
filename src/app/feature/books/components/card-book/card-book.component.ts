@@ -1,9 +1,10 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 import type { Book } from '../../models/book.model';
 import { BOOKS_DIALOG_TYPES, BooksDialogType } from '../../models/book.model';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-card-book',
@@ -13,13 +14,13 @@ import { BOOKS_DIALOG_TYPES, BooksDialogType } from '../../models/book.model';
   styleUrl: './card-book.component.scss'
 })
 export class CardBookComponent {
-  book = input.required<Book>();
-  protected readonly openDialog = output<{book: Book, type: BooksDialogType}>();
-
+  public book = input.required<Book>();
   protected readonly BOOKS_DIALOG_TYPES = BOOKS_DIALOG_TYPES;
+
+  constructor(private dialogService: DialogService) {}
 
   onOpenDialog(event: Event, type: BooksDialogType): void {
     event.stopPropagation();
-    this.openDialog.emit({ book: this.book(), type });
+    this.dialogService.openBookDialog(this.book(), type);
   }
 }

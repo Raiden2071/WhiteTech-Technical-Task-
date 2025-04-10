@@ -25,10 +25,9 @@
 
     <div class="books-container">
       @for (book of filteredBooks(); track book.id) {
-        <app-card-book 
-          [book]="book" 
-          (openDialog)="openDialog(book, $event.type)">
-        </app-card-book>
+        <app-card-book
+          [book]="book"
+        ></app-card-book>
       }
     </div>
   </div>
