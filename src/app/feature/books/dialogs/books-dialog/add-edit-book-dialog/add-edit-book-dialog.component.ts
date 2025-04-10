@@ -24,7 +24,7 @@ import type { Book, BooksDialog } from '@feature/books/models/book.model';
 import { BooksService } from '@feature/books/services/books.service';
 
 @Component({
-  selector: 'app-edit-book-dialog',
+  selector: 'app-add-edit-book-dialog',
   standalone: true,
   imports: [
     MatButton,
@@ -38,20 +38,22 @@ import { BooksService } from '@feature/books/services/books.service';
     MatLabel,
     ReactiveFormsModule
   ],
-  templateUrl: './edit-book-dialog.component.html',
-  styleUrl: './edit-book-dialog.component.scss',
+  templateUrl: './add-edit-book-dialog.component.html',
+  styleUrl: './add-edit-book-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditBookDialogComponent implements OnInit {
-  readonly editBookForm = this.fb.group({
+export class AddEditBookDialogComponent implements OnInit {
+  readonly bookForm = this.fb.group({
     name: ['', Validators.required],
     author: ['', Validators.required],
     year: [0, Validators.required],
     description: ['', Validators.required],
     image: [''],
   });
+
   @ViewChild('fileInput') fileInput!: ElementRef;
   imagePreview: WritableSignal<string | ArrayBuffer | null> = signal(null);
+  isEditMode = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: BooksDialog,
@@ -61,14 +63,17 @@ export class EditBookDialogComponent implements OnInit {
 
   public ngOnInit() {
     const book = this.data.book;
+    this.isEditMode = !!book;
 
-    this.editBookForm.patchValue({
-      name: book.name,
-      author: book.author,
-      year: +book.year,
-      description: book.description,
-      image: book.image,
-    });
+    if (this.isEditMode) {
+      this.bookForm.patchValue({
+        name: book.name,
+        author: book.author,
+        year: +book.year,
+        description: book.description,
+        image: book.image,
+      });
+    }
   }
 
   public onImageClick(): void {
@@ -76,25 +81,24 @@ export class EditBookDialogComponent implements OnInit {
   }
 
   public onFileChange(event: Event): void {
-    // const input = event.target as HTMLInputElement;
-    // const file = input.files?.[0];
-    // if (file) {
-    //   this.editBookForm.patchValue({ image: file });
-    // }
-
-    // const reader = new FileReader();
-    // reader.onload = () => {
-    //   this.imagePreview.set(reader.result);
-    // };
-
-    // reader.readAsDataURL(file);
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        this.imagePreview.set(result);
+        this.bookForm.patchValue({ image: result });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
-  public editBook(): void {
-    const formValue = this.editBookForm.value;
+  public saveBook(): void {
+    const formValue = this.bookForm.value;
 
-    const bookValueToEdit: Book = {
-      id: this.data.book.id,
+    const bookValue: Book = {
+      id: this.isEditMode ? this.data.book.id : crypto.randomUUID(),
       name: formValue.name || '',
       author: formValue.author || '',
       year: formValue.year as number,
@@ -102,6 +106,10 @@ export class EditBookDialogComponent implements OnInit {
       image: formValue.image || '',
     };
 
-    this.booksService.editBook(bookValueToEdit);
+    if (this.isEditMode) {
+      this.booksService.editBook(bookValue);
+    } else {
+      this.booksService.addBook(bookValue);
+    }
   }
-}
+} 
