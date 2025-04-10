@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, EventEmitter, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 import type { Book } from '../../models/book.model';
@@ -13,12 +13,13 @@ import { BOOKS_DIALOG_TYPES } from '../../models/book.model';
   styleUrl: './card-book.component.scss'
 })
 export class CardBookComponent {
-  book = input.required<Book>();
-  openDialog = new EventEmitter<{book: Book, type: string}>();
+  readonly book = input.required<Book>();
+  protected readonly openDialog = output<{book: Book, type: string}>();
 
   protected readonly BOOKS_DIALOG_TYPES = BOOKS_DIALOG_TYPES;
 
-  onOpenDialog(type: string): void {
+  onOpenDialog(event: Event, type: string): void {
+    event.stopPropagation();
     this.openDialog.emit({ book: this.book(), type });
   }
 }

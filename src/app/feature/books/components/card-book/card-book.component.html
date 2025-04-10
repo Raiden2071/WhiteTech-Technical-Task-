@@ -1,4 +1,4 @@
-<mat-card class="book-card" (click)="onOpenDialog(BOOKS_DIALOG_TYPES.SHOW)">
+<mat-card class="book-card" (click)="onOpenDialog($event, BOOKS_DIALOG_TYPES.SHOW)">
   <div class="img-block">
     @if (book().image) {
       <img mat-card-image class="card-image" [src]="book().image" alt="Book cover" width="300" height="300" priority />
@@ -13,10 +13,10 @@
   </mat-card-content>
 
   <mat-card-actions class="buttons-handler">
-    <button class="card-btn" (click)="$event.stopPropagation(); onOpenDialog(BOOKS_DIALOG_TYPES.DELETE)">
+    <button class="card-btn" (click)="onOpenDialog($event, BOOKS_DIALOG_TYPES.DELETE)">
       <img ngSrc="icons/bin.svg" class="bin" alt="delete" height="16" width="16" />
     </button>
-    <button class="card-btn" (click)="$event.stopPropagation(); onOpenDialog(BOOKS_DIALOG_TYPES.EDIT)">
+    <button class="card-btn" (click)="onOpenDialog($event, BOOKS_DIALOG_TYPES.EDIT)">
       <img ngSrc="icons/pencil.svg" class="pencil" alt="edit" height="16" width="16" />
     </button>
   </mat-card-actions>
