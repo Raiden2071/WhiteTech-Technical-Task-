@@ -6,7 +6,7 @@ export const BOOKS = [
     year: 2018,
     description:
       'An easy and proven way to build good habits and break bad ones. The book offers a proven framework for improving every day.',
-    image: 'https://m.media-amazon.com/images/I/81wgcld4wxL._AC_UF1000,1000_QL80_.jpg',
+    image: 'images/atomic-habits.jpg',
   },
   {
     id: '2',
@@ -24,7 +24,7 @@ export const BOOKS = [
     year: 2016,
     description:
       'A guide to developing the superpower of deep focus and concentration. The book offers concrete strategies for cultivating this skill in a distracted world.',
-    image: 'https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg',
+    image: 'images/deep-work.jpg',
   },
   {
     id: '4',
@@ -51,7 +51,7 @@ export const BOOKS = [
     year: 2016,
     description:
       'A counterintuitive approach to living a good life. The book challenges conventional wisdom and offers a refreshing perspective on personal development.',
-    image: 'https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg',
+    image: 'images/the-subtle-art.jpg',
   },
   {
     id: '7',
@@ -69,7 +69,7 @@ export const BOOKS = [
     year: 1997,
     description:
       'A guide to spiritual enlightenment. The book shows how to live a more fulfilling life by focusing on the present moment.',
-    image: 'https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg',
+    image: 'images/power-of-now.jpg',
   },
   {
     id: '9',
@@ -87,7 +87,7 @@ export const BOOKS = [
     year: 1988,
     description:
       'A philosophical novel about a young Andalusian shepherd. The book follows his journey to Egypt, after having a recurring dream of finding treasure there.',
-    image: 'https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg',
+    image: 'images/alchemist.jpg',
   },
   {
     id: '11',
@@ -96,7 +96,7 @@ export const BOOKS = [
     year: 2012,
     description:
       'A powerful book about vulnerability and courage. The author explores how embracing our vulnerabilities can lead to greater connection and creativity.',
-    image: 'https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg',
+    image: 'images/daring-greatly.jpg',
   },
   {
     id: '12',

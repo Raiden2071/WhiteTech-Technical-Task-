@@ -11,14 +11,6 @@
     border: 1px solid #d4d4d4;
     border-radius: 20px;
 
-    .section-header {
-      font-size: 34px;
-      padding: 24px 30px 10px 30px;
-      font-weight: lighter;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-
     .controls-container {
       display: flex;
       justify-content: space-between;
@@ -48,7 +40,7 @@
 
     .books-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(var(--book-card-width), 1fr));
       gap: 16px;
       padding: 16px;
       justify-items: center;

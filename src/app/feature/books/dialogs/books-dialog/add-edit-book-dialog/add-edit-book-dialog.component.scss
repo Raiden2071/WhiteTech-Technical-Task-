@@ -13,10 +13,10 @@
     justify-content: center;
   
     margin-bottom: 1rem;
-    height: 200px;
-    width: 200px;
-    min-height: 200px;
-    min-width: 200px;
+    height: var(--book-card-width);
+    width: var(--book-card-width);
+    min-height: var(--book-card-width);
+    min-width: var(--book-card-width);
     border: 1px solid var(--black);
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -28,7 +28,7 @@
     }
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.01);
     }
   }
 

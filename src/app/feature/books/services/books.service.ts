@@ -5,12 +5,11 @@ import type { Book } from '@feature/books/models/book.model';
 @Injectable({
     providedIn: 'root'
 })
-
 export class BooksService {
     public books: WritableSignal<Book[]> = signal(BOOKS);
 
   public addBook(book: Book): void {
-    this.books.update((books) => [...books, book]);
+    this.books.update((books) => [book, ...books]);
   }
 
   public deleteBook(id: string): void {

@@ -1,15 +1,15 @@
 <mat-card class="book-card" (click)="onOpenDialog($event, BOOKS_DIALOG_TYPES.SHOW)">
   <div class="img-block">
     @if (book().image) {
-      <img mat-card-image class="card-image" [src]="book().image" alt="Book cover" width="300" height="300" priority />
+      <img mat-card-image class="card-image" [src]="book().image" alt="Book cover" priority />
     } @else {
       <p class="card-photo-name">NO IMAGE</p>
     }
   </div>
 
   <mat-card-content>
-    <p>{{ book().name }}</p>
-    <p>{{ book().author }}</p>
+    <p class="card-name">{{ book().name }}</p>
+    <p class="card-author">{{ book().author }}</p>
   </mat-card-content>
 
   <mat-card-actions class="buttons-handler">
