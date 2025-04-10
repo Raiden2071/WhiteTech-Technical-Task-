@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,6 +32,7 @@ import { DialogService } from './services/dialog.service';
     CommonModule,
     MatCardModule,
     MatIconModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
     MatInput,
