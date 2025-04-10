@@ -75,7 +75,7 @@ export class AddEditBookDialogComponent implements OnInit {
       });
     }
   }
-
+  
   public onImageClick(): void {
     this.fileInput.nativeElement.click();
   }

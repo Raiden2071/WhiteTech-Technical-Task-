@@ -11,11 +11,4 @@ import { NavbarComponent } from './core/navbar/navbar.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  public readonly user = {
-    name: 'Jon',
-  }
-
-  getName() {
-    return this.user.name
-  }
 }
