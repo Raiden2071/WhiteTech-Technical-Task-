@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  padding: 30px;
+  gap: 70px;
+
+  .content {
+    width: 100vw;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d4d4d4;
+    border-radius: 20px;
+
+    .controls-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+
+      .input-handler {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+      }
+
+      .add-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 56px;
+        padding: 0 24px;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+
+        mat-icon {
+          margin-right: 4px;
+        }
+      }
+    }
+
+    .books-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--book-card-width), 1fr));
+      gap: 16px;
+      padding: 16px;
+      justify-items: center;
+    }
+  }
+}

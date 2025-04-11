@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "styles/variables/index.scss";
+
 html,
 body {
   height: 100%;

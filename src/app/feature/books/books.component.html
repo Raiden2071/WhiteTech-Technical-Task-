@@ -1,0 +1,31 @@
+<div class="wrapper">
+
+  <div class="content">
+    <div class="controls-container">
+      <mat-form-field class="input-handler">
+        <input
+          matInput
+          type="text"
+          [formControl]="searchText"
+          placeholder="Enter the book..."
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" class="add-button" (click)="openDialog(null, BOOKS_DIALOG_TYPES.ADD)">
+        <mat-icon>add</mat-icon>
+        Add Book
+      </button>
+    </div>
+
+    <hr>
+
+    <div class="books-container">
+      @for (book of filteredBooks(); track book.id) {
+        <app-card-book
+          [book]="book"
+        ></app-card-book>
+      }
+    </div>
+  </div>
+</div>
